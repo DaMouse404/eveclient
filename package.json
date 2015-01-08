@@ -24,13 +24,16 @@
     "sinon": "^1.12.2",
     "mocha-term-cov-reporter": "^0.2.0",
     "mocha-lcov-reporter": "0.0.1",
-    "blanket": "^1.1.6"
+    "blanket": "^1.1.6",
+    "jshint": "~2.5.11"
   },
   "dependencies": {
     "sax": "^0.6.1",
     "cacheman": "^1.0.3",
     "request": "^2.51.0",
-    "joi": "^5.1.0"
+    "joi": "^5.1.0",
+    "lodash": "~2.4.1",
+    "object-hash": "~0.4.0"
   },
   "config": {
     "blanket": {
