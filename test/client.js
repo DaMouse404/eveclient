@@ -1,8 +1,7 @@
 var Sinon = require('sinon'),
     Request = require('request'),
-    Stream = require('stream'),
-    FS = require('fs');
-    Client  = require('../lib/client'),
+    FS = require('fs'),
+    Client = require('../lib/client'),
     assert = require('assert');
 
 //request

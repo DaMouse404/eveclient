@@ -1,0 +1,46 @@
+{
+  "name": "eveclient",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/client.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jshint . && mocha --reporter nyan",
+    "coverage": "mocha --require blanket --reporter mocha-term-cov-reporter"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DaMouse404/eveclient.git"
+  },
+  "author": "Christopher Sidebottom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DaMouse404/eveclient/issues"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "sinon": "^1.12.2",
+    "mocha-term-cov-reporter": "^0.2.0",
+    "mocha-lcov-reporter": "0.0.1",
+    "blanket": "^1.1.6"
+  },
+  "dependencies": {
+    "sax": "^0.6.1",
+    "cacheman": "^1.0.3",
+    "request": "^2.51.0",
+    "joi": "^5.1.0"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "lib"
+      ],
+      "data-cover-never": [
+        "node_modules",
+        "test"
+      ]
+    }
+  }
+}
