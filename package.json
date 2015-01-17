@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "jshint . && mocha --reporter nyan",
-    "coverage": "mocha --require blanket --reporter mocha-term-cov-reporter"
+    "coverage": "mocha --require blanket --reporter mocha-term-cov-reporter",
+    "coveralls": "mocha --require blanket --reporter mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,8 @@
     "mocha-term-cov-reporter": "^0.2.0",
     "mocha-lcov-reporter": "0.0.1",
     "blanket": "^1.1.6",
-    "jshint": "~2.5.11"
+    "jshint": "~2.5.11",
+    "coveralls": "~2.11.2"
   },
   "dependencies": {
     "sax": "^0.6.1",
