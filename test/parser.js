@@ -63,4 +63,15 @@ describe('Parser', function() {
       });
     });
 
+    it('bubbles errors to the callback', function (done){
+      fs.readFile(__dirname + '/fixtures/parser/garbage.xml', function (err, xml) {
+        Parser.parse(xml, function (err) {
+          assert.ok(err instanceof Error);
+          assert.equal('syntax error', err.message);
+          done();
+        });
+      });
+    });
+
+
 });
