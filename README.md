@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/DaMouse404/eveclient/badge.svg?branch=master)](https://coveralls.io/r/DaMouse404/eveclient?branch=master)
 [![Code Climate](https://codeclimate.com/github/DaMouse404/eveclient/badges/gpa.svg)](https://codeclimate.com/github/DaMouse404/eveclient)
 
+Client for the Eve API with cache provided by [Cacheman](https://www.npmjs.org/package/cacheman)
+
 ## Example
 ```js
 var Client = require('./lib/client'),
