@@ -64,7 +64,7 @@ describe('Parser', function() {
     });
 
     it('bubbles errors to the callback', function (done){
-      fs.readFile(__dirname + '/fixtures/parser/garbage.xml', function (err, xml) {
+      fs.readFile(__dirname + '/fixtures/garbage.xml', function (err, xml) {
         Parser.parse(xml, function (err) {
           assert.ok(err instanceof Error);
           assert.equal('syntax error', err.message);
@@ -73,5 +73,23 @@ describe('Parser', function() {
       });
     });
 
+
+    it('Errors if non eve API format is returned', function (done){
+      fs.readFile(__dirname + '/fixtures/parser/noteve.xml', function (err, xml) {
+        Parser.parse(xml, function (err) {
+          assert.ok(err instanceof Error);
+          assert.equal('Invalid API response structure.', err.message);
+          done();
+        });
+      });
+    });
+    it('Allows read streams as well as raw xml', function(done) {
+        Parser.parse(fs.createReadStream(__dirname + '/fixtures/parser/simple.xml'), function(err, json) {
+            var expected = require(__dirname + '/fixtures/parser/simple');
+
+            assert.deepEqual(expected, json);
+            done();
+        });
+    });
 
 });

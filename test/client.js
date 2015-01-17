@@ -4,10 +4,6 @@ var Sinon = require('sinon'),
     Client = require('../lib/client'),
     assert = require('assert');
 
-//request
-//    .get('https://api.eveonline.com/server/ServerStatus.xml.aspx')
-//    .pipe(parser.parse);
-
 describe('Client', function() {
     describe('Fetcher', function() {
         var client;
@@ -65,6 +61,15 @@ describe('Client', function() {
         it('respects the TTLs given by the Eve api', function(done) {
             client.fetch('server', 'ServerStatus', {}, function() {
                 assert.equal(1, client._cache.set.getCall(0).args[2]);
+                done();
+            });
+        });
+
+        it('Bubbles parser errors', function(done) {
+            Request.get.returns(FS.createReadStream(__dirname + '/fixtures/garbage.xml'));
+
+            client.fetch('server', 'ServerStatus', {}, function(err) {
+                assert.equal('syntax error', err.message);
                 done();
             });
         });
@@ -151,11 +156,3 @@ describe('Client', function() {
         });
     });
 });
-/*
-parser.parse(
-    request.get('https://api.eveonline.com/server/ServerStatus.xml.aspx'),
-    function(err, result) {
-        console.log(err, result);
-    }
-);
-*/
